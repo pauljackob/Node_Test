@@ -5,6 +5,8 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const uuidv4 = require("uuid/v4");
+const compression = require ("copmression");
+const helmet = require('helmet');
 
 const {
   connection
@@ -21,6 +23,13 @@ server.use(
     origin: "http://localhost:3000"
   })
 );
+server.use(copmression());
+server.use(helmet());
+
+server.get("/", (request, response)=> {
+  response.send("on the master branch")
+});
+
 
 server.get("/get/jokes", (req, res) => {
   connection.query("SELECT * FROM joke order by id desc", (error, results) => {
