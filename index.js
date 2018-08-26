@@ -27,7 +27,7 @@ server.use(copmression());
 server.use(helmet());
 
 server.get("/", (request, response)=> {
-  response.send("on the master branch")
+  response.send("on the master branch");
 });
 
 
