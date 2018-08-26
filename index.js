@@ -7,6 +7,7 @@ const fs = require("fs");
 const uuidv4 = require("uuid/v4");
 const compression = require ("compression");
 const helmet = require('helmet');
+const {SHA256} = require ("crypto-js");
 
 const {
   connection
@@ -28,6 +29,12 @@ server.use(helmet());
 
 server.get("/", (request, response)=> {
   response.send("on the master branch");
+});
+
+server.get("/password", (request, response)=> {
+  const stupidPassword = "password123";
+  const hashPassword = SHA256(stupidPassword);
+  console.log({hashPassword});
 });
 
 
