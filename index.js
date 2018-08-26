@@ -23,7 +23,7 @@ server.use(
     origin: "http://localhost:3000"
   })
 );
-server.use(copmression());
+server.use(compression());
 server.use(helmet());
 
 server.get("/", (request, response)=> {
