@@ -5,7 +5,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const uuidv4 = require("uuid/v4");
-const compression = require ("copmression");
+const compression = require ("compression");
 const helmet = require('helmet');
 
 const {
